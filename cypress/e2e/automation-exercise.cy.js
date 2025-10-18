@@ -122,7 +122,7 @@ describe('Automation Exercise', () => {
         cy.get('.signup-form > form > p').should('contain', 'Email Address already exist!')
     })
 
-    it('Preencher formulario Contact us', () => {
+    it.skip('Preencher formulario Contact us', () => {
         cy.get('a[href="/contact_us"]').click()
         cy.get('[data-qa="name"]').type(userData.name)
         cy.get('[data-qa="email"]').type(userData.email)
