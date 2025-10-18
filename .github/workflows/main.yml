@@ -10,7 +10,7 @@ jobs:
 
   steps:
     # clone do projeto
-    - users: actions/checkout@v4
+    - uses: actions/checkout@v4
 
     # Conferir a versão instalada
     - name: Node version
