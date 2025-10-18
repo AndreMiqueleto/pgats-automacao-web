@@ -5,9 +5,9 @@ on:
 
 jobs:
   e2e-tests:
-
+  
   runs-on: ubuntu-latest
-
+  
   steps:
     # clone do projeto
     - uses: actions/checkout@v4
@@ -20,6 +20,6 @@ jobs:
       run: npm install
 
     - name: Executando os testes
-      run: npx cypress run
+      run: npx cypress run --browser chrome
     
     
