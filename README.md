@@ -1,6 +1,21 @@
 # pgats-automacao-web
 
-Projeto de automação (trabalho final individual) criado para a aplicação fictícia "Automation Exercise" usando Cypress.
+Projeto de automação (trabalho final individual) criado para a aplicação fictícia "Automation Exercise" usando Cypress seguindo as instruções guiadas professor Samuel:
+
+Trabalho Final individual.
+Usando a aplicação fictícia Automation Exercise, crie um projeto que implementa os casos descritos na página "Test Cases":
+1, 2, 3, 4, 5, 6, 8, 9, 10 e 15
+
+Formato de Entrega do Trabalho Final @everyone 
+
+O entregável deverá ser o upload do projeto com a URL para o Github, com atenção para os seguintes pontos:
+
+- 1 - Execução via Github Actions
+- 2 - Execução sem quebras
+- 3 - Uso adequado de seletores e padrões
+- 4 - Atenção a boas práticas
+- 5 - Relatórios
+
 
 ## Visão geral
 
@@ -91,21 +106,3 @@ Exemplo básico de job (resumo): instalar dependências e executar `npx cypress 
 - Padronizar `package.json` com scripts úteis (ex.: `test:headless`, `test:open`, `report:generate`).
 - Adicionar workflow do GitHub Actions para execução automática e upload dos relatórios.
 - Incluir testes adicionais e casos de borda (p.ex. campos vazios, limites de upload).
-
-
-
-- Instruções de entrega do trabalho solicitadas pelo professor Samuel:
-
-Trabalho Final individual.
-Usando a aplicação fictícia Automation Exercise, crie um projeto que implementa os casos descritos na página "Test Cases":
-1, 2, 3, 4, 5, 6, 8, 9, 10 e 15
-
-Formato de Entrega do Trabalho Final @everyone 
-
-O entregável deverá ser o upload do projeto com a URL para o Github, com atenção para os seguintes pontos:
-
-1 - Execução via Github Actions
-2 - Execução sem quebras
-3 - Uso adequado de seletores e padrões
-4 - Atenção a boas práticas
-5 - Relatórios
