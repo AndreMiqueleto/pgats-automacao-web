@@ -20,7 +20,7 @@ jobs:
         run: npm install
   
       - name: Executando os testes
-        run: npx cypress run --spec "cypress/e2e/automation-exercise*" --browser chrome
+        run: npx cypress run --spec "cypress/e2e/automation-exercise-modules.cy.js" --browser chrome
 
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}

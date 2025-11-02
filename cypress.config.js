@@ -1,11 +1,18 @@
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
-  e2e: {
-    setupNodeEvents(on, config) {
-      // implement node event listeners here
+    reporter: 'cypress-mochawesome-reporter',
+    reporterOptions: {
+    reportDir: 'cypress/reports',  // pasta onde vai gerar os relatórios
+    overwrite: true,
+    html: true,
+    json: true,
     },
-  },
+    e2e: {
+      setupNodeEvents(on, config) {
+        require('cypress-mochawesome-reporter/plugin')(on);
+      },
+    },
 
   retries: {
     // Configure retry attempts for `cypress run`

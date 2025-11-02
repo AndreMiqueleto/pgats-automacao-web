@@ -8,21 +8,25 @@
 */
 
 import userData from '../fixtures/dadosUsuario.json'
+import {
+    getRandomNumber,
+    getRandomEmail
+} from '../support/helpers'
 
+import { faker } from '@faker-js/faker'
 
 describe('Automation Exercise', () => {
     beforeEach(() => {
-        cy.viewport('iphone-xr')
+        //cy.viewport('iphone-xr')
         cy.visit('https://automationexercise.com')
         cy.get('a[href="/login"]').click()
 
     });
 
     it('Cadastrar um usuário', () => {
-        const timestamp = new Date().getTime()
-
         cy.get('[data-qa="signup-name"]').type(userData.name)
-        cy.get('[data-qa="signup-email"]').type(`qa-tester-${timestamp}@test.com`)
+        
+        cy.get('[data-qa="signup-email"]').type(getRandomEmail())
 
         cy.contains('button', 'Signup').click()
 
@@ -41,17 +45,17 @@ describe('Automation Exercise', () => {
         cy.get('input[type=checkbox]#newsletter').check()
         cy.get('input[type=checkbox]#optin').check()
 
-        cy.get('input#first_name').type('Luis')
-        cy.get('input#last_name').type('Brunetti')
-        cy.get('input#company').type('CASA BRUNETTI')
+        cy.get('input#first_name').type(faker.person.firstName())
+        cy.get('input#last_name').type(faker.person.lastName())
+        cy.get('input#company').type(`PGATS ${faker.company.name()}` )
 
 
-        cy.get('input#address1').type('Rua Joao Ribeiro')
+        cy.get('input#address1').type(faker.location.streetAddress())
         cy.get('select#country').select('United States')
-        cy.get('input#state').type('California')
-        cy.get('input#city').type('San Diego')
+        cy.get('input#state').type(faker.location.state())
+        cy.get('input#city').type(faker.location.city())
 
-        cy.get('[data-qa="zipcode"]').type('100000')
+        cy.get('[data-qa="zipcode"]').type(faker.location.zipCode())
         cy.get('[data-qa="mobile_number"]').type('12345678')
 
         // Act
@@ -122,16 +126,23 @@ describe('Automation Exercise', () => {
         cy.get('.signup-form > form > p').should('contain', 'Email Address already exist!')
     })
 
-    it.skip('Preencher formulario Contact us', () => {
-        cy.get('a[href="/contact_us"]').click()
+    it('Preencher formulario Contact us com upload de arquivo', () => {
+        cy.get('a[href*=contact]').click()
         cy.get('[data-qa="name"]').type(userData.name)
         cy.get('[data-qa="email"]').type(userData.email)
+        cy.get('[data-qa="subject"]').type(userData.subject)
+        cy.get('[data-qa="message"]').type(userData.message)
+        
+        
+        cy.fixture('dadosUsuario.json').as('arquivo')
+        cy.get('input[type=file]').selectFile('@arquivo')
 
         //Act
-        cy.contains('button', 'Signup').click()
+        cy.get('[data-qa="submit-button"]').click()
 
         //Assert
-        cy.get('.signup-form > form > p').should('contain', 'Email Address already exist!')
+         cy.get('.status').should('be.visible')
+        cy.get('.status').should('have.text', 'Success! Your details have been submitted successfully.')
     })
 
 })
