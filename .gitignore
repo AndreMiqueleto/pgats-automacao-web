@@ -5,10 +5,7 @@ cypress/videos
 cypress/reports
 cypress/results
 browserstack.json
-cypress/e2e/ai-testcraft-test-creator.cy.js
-cypress/e2e/automation-exercise.cy.js
-cypress/e2e/exercicio-02.js
-cypress/e2e/drag-and-drop-and-windows.cy.js
+cypress/e2e/atividadesAula
 .DS_STORE
 cypress/.DS_Store
 cypress/downloads/
